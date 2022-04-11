@@ -1,0 +1,18 @@
+server:
+  port: 8701
+spring:
+  application:
+    name: feign-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+feign:
+  hystrix:
+    enabled: true #在Feign中开启Hystrix

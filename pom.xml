@@ -23,6 +23,7 @@
         <module>ribbon</module>
         <module>hystrix-service</module>
         <module>hystrix-dashboard</module>
+        <module>feign-service</module>
     </modules>
 
     <properties>
