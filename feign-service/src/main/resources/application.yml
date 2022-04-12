@@ -16,3 +16,8 @@ eureka:
 feign:
   hystrix:
     enabled: true #在Feign中开启Hystrix
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream' #暴露hystrix监控端点
