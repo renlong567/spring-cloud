@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>spring-cloud</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>spring-cloud</name>
     <description>spring-cloud</description>
     <packaging>pom</packaging>
@@ -25,6 +25,8 @@
         <module>hystrix-dashboard</module>
         <module>feign-service</module>
         <module>zuul-proxy</module>
+        <module>config-server</module>
+        <module>config-client</module>
     </modules>
 
     <properties>
@@ -105,12 +107,12 @@
             <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>common-service</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>mbg</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!--MyBatis分页插件starter-->
             <dependency>

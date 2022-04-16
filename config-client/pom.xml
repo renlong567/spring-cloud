@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>zuul-proxy</artifactId>
+    <artifactId>config-client</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>zuul-proxy</name>
-    <description>zuul-proxy</description>
+    <name>config-client</name>
+    <description>config-client</description>
 
     <parent>
         <artifactId>spring-cloud</artifactId>
@@ -18,16 +18,15 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- 通过SpringBoot Actuator来查看Zuul中的路由信息 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
