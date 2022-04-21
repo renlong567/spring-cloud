@@ -1,0 +1,53 @@
+server:
+  port: 9201
+service-url:
+  user-service: http://localhost:8101
+spring:
+  application:
+    name: api-gateway
+  redis:
+    host: localhost
+    password:
+    port: 6379
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能
+          lower-case-service-id: true #使用小写服务名，默认是大写
+      routes:
+        - id: requestratelimiter_route  #路由限速
+          uri: ${service-url.user-service}
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1 #每秒允许处理的请求数量
+                redis-rate-limiter.burstCapacity: 2 #每秒最大处理的请求数量
+                key-resolver: "#{@ipKeyResolver}" #限流策略，对应策略的Bean
+          predicates:
+            - Method=GET
+        - id: path_route #路由的ID
+          uri: ${service-url.user-service}/user/{id} #匹配后路由地址
+          predicates: # 断言，路径相匹配的进行路由
+            - Path=/user/{id}
+#          filters:
+#            - name: Hystrix
+#              args:
+#                name: fallbackcmd
+#                fallbackUri: forward:/fallback
+        - id: hystrix_route #降级处理
+          uri: ${service-url.user-service}
+          predicates:
+            - Method=GET
+          filters:
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
