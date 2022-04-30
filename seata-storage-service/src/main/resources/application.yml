@@ -1,0 +1,34 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    url: jdbc:mysql://localhost:3306/seat-storage?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+logging:
+  level:
+    io:
+      seata: info
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+seata:
+  tx-service-group: default_tx_group
+  enable-auto-data-source-proxy: true
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: seata_namespace_id
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: seata_namespace_id
+      group: SEATA_GROUP
