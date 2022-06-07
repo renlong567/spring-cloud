@@ -34,7 +34,6 @@
         <module>admin-server</module>
         <module>admin-client</module>
         <module>admin-security-server</module>
-        <module>oauth2-server</module>
         <module>oauth2-jwt-server</module>
         <module>oauth2-client</module>
         <module>nacos-user-service</module>
