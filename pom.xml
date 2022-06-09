@@ -43,6 +43,9 @@
         <module>seata-order-service</module>
         <module>seata-storage-service</module>
         <module>seata-account-service</module>
+        <module>micro-oauth2-auth</module>
+        <module>micro-oauth2-gateway</module>
+        <module>micro-oauth2-api</module>
     </modules>
 
     <properties>
