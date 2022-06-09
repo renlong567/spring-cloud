@@ -46,6 +46,9 @@
         <module>micro-oauth2-auth</module>
         <module>micro-oauth2-gateway</module>
         <module>micro-oauth2-api</module>
+        <module>micro-knife4j-user</module>
+        <module>micro-knife4j-order</module>
+        <module>micro-knife4j-gateway</module>
     </modules>
 
     <properties>
